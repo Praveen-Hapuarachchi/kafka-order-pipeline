@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.ec8202.assignment",
+  "doc": "A single purchase order event produced to the 'orders' Kafka topic.",
+  "fields": [
+    {"name": "orderId", "type": "string", "doc": "Unique identifier for the order, e.g. '1001'"},
+    {"name": "product",  "type": "string", "doc": "Name of the purchased item, e.g. 'Item1'"},
+    {"name": "price",    "type": "float",  "doc": "Price of the product (randomized for the assignment)"}
+  ]
+}

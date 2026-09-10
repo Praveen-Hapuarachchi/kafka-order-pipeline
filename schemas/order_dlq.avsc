@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "OrderDLQ",
+  "namespace": "com.ec8202.assignment",
+  "doc": "Envelope written to the 'orders-dlq' topic for messages that could not be processed.",
+  "fields": [
+    {"name": "orderId",      "type": ["null", "string"], "default": null, "doc": "Order id if it could be parsed, else null"},
+    {"name": "rawPayload",   "type": "bytes", "doc": "The original Avro-encoded bytes of the failed message, preserved for replay/inspection"},
+    {"name": "errorType",    "type": "string", "doc": "'VALIDATION' (permanent) or 'MAX_RETRIES_EXCEEDED' (temporary-turned-permanent) or 'DESERIALIZATION'"},
+    {"name": "errorMessage", "type": "string", "doc": "Human readable error detail"},
+    {"name": "retryCount",   "type": "int", "doc": "Number of processing attempts made before giving up"},
+    {"name": "failedAtEpochMs", "type": "long", "doc": "Epoch millis when the message was routed to the DLQ"}
+  ]
+}

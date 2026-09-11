@@ -1,2 +1,2 @@
-confluent-kafka==2.5.0
-fastavro==1.9.5
+confluent-kafka>=2.6.0
+fastavro>=1.9.7
